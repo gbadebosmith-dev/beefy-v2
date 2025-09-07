@@ -87,6 +87,9 @@ export const config = {
       'mEDGE',
       'mMEV',
       'frxUSD',
+      'scrvUSD',
+      'cUSD',
+      'stcUSD',
     ],
   },
   polygon: {
@@ -371,6 +374,7 @@ export const config = {
       'aavUSDT',
       'aavUSDC',
       'EURC',
+      'savUSD',
     ],
   },
   cronos: {
@@ -396,6 +400,7 @@ export const config = {
   moonbeam: {
     name: 'Moonbeam',
     chainId: 1284,
+    eol: 1756396225,
     rpc: ['https://rpc.api.moonbeam.network'],
     explorerUrl: 'https://moonscan.io',
     multicall3Address: '0xcA11bde05977b3631167028862bE2a173976CA11',
@@ -600,7 +605,7 @@ export const config = {
       baseMinimum: '7',
       baseSafetyMargin: 0.2,
     },
-    stableCoins: ['USDT', 'USDC', 'DAI', 'MAI', 'USDT+', 'USD+', 'LUSD', 'DUSD'],
+    stableCoins: ['USDT', 'USDC', 'DAI', 'MAI', 'USDT+', 'USD+', 'LUSD', 'DUSD', 'asUSD'],
   },
   mantle: {
     name: 'Mantle',
@@ -672,6 +677,7 @@ export const config = {
     name: 'Re.al',
     chainId: 111188,
     eol: 1731964599,
+    disabled: true, // no rpcs available
     rpc: ['https://rpc.realforreal.gelato.digital'],
     explorerUrl: 'https://explorer.re.al',
     multicall3Address: '0xcA11bde05977b3631167028862bE2a173976CA11',
@@ -689,7 +695,7 @@ export const config = {
   sei: {
     name: 'Sei',
     chainId: 1329,
-    rpc: ['https://evm-rpc.sei-apis.com'],
+    rpc: ['https://sei-public.nodies.app'],
     explorerUrl: 'https://seitrace.com',
     multicall3Address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     appMulticallContractAddress: '0xeC1253CC6AB22680B3A3C35EA696dD0A6FC4B0D9',
@@ -718,7 +724,7 @@ export const config = {
     name: 'Scroll',
     chainId: 534352,
     eol: 1753131600,
-    rpc: ['https://scroll-mainnet.public.blastapi.io'],
+    rpc: ['https://scroll.drpc.org', 'https://scroll-mainnet.public.blastapi.io'],
     explorerUrl: 'https://scrollscan.com',
     multicall3Address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     appMulticallContractAddress: '0xB58AD63989237E962F3E618eEeb43c30574c6F72',
@@ -968,5 +974,3 @@ export const config = {
     stableCoins: ['USDC', 'USDT', 'DOLA'],
   },
 } satisfies Record<ChainConfig['id'], Omit<ChainConfig, 'id'>>;
-
-export const chains: ChainConfig['id'][] = Object.keys(config) as ChainConfig['id'][];
